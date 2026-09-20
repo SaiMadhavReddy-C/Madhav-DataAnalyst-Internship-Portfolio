@@ -1,1740 +1,232 @@
-<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html>
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
-<title>Sai Madhav — Data Analytics Portfolio</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-
-<style>
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-:root {
-  --bg: #080f1a;
-  --surface: #0f1c2e;
-  --card: #132030;
-  --border: #1a2f48;
-
-  --accent: #00d4aa;
-  --blue: #4f8ef7;
-  --orange: #f39c12;
-  --purple: #9b59b6;
-  --red: #e74c3c;
-  --green: #2ecc71;
-
-  --text: #e2e8f0;
-  --muted: #718096;
-
-  --mono: "JetBrains Mono", monospace;
-}
-
-html {
-  scroll-behavior: smooth;
-}
-
-body {
-  font-family: "Inter", sans-serif;
-  background: var(--bg);
-  color: var(--text);
-  line-height: 1.6;
-}
-
-/* =========================
-   NAVIGATION
-========================= */
-
-nav {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 100;
-
-  height: 56px;
-  padding: 0 2rem;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-
-  background: rgba(8, 15, 26, 0.92);
-  backdrop-filter: blur(12px);
-
-  border-bottom: 1px solid var(--border);
-}
-
-.nav-brand {
-  font-family: var(--mono);
-  font-size: 0.9rem;
-  color: var(--accent);
-}
-
-.nav-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-}
-
-.nav-links a {
-  color: var(--muted);
-  text-decoration: none;
-  font-size: 0.85rem;
-  transition: color 0.2s;
-}
-
-.nav-links a:hover {
-  color: var(--accent);
-}
-
-/* =========================
-   HERO
-========================= */
-
-.hero {
-  min-height: 100vh;
-
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: flex-start;
-
-  padding: 7rem 6rem 4rem;
-
-  position: relative;
-  overflow: hidden;
-}
-
-.hero::before {
-  content: "";
-
-  position: absolute;
-  top: -200px;
-  right: -200px;
-
-  width: 600px;
-  height: 600px;
-
-  border-radius: 50%;
-
-  background:
-    radial-gradient(
-      circle,
-      rgba(79, 142, 247, 0.08) 0%,
-      transparent 70%
-    );
-
-  pointer-events: none;
-}
-
-.hero-eyebrow {
-  font-family: var(--mono);
-  font-size: 0.8rem;
-  color: var(--accent);
-
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-
-  margin-bottom: 1.2rem;
-}
-
-.hero h1 {
-  font-size: clamp(2.8rem, 6vw, 5rem);
-  font-weight: 700;
-  line-height: 1.1;
-
-  margin-bottom: 0.5rem;
-}
-
-.hero h1 span {
-  color: var(--accent);
-}
-
-.hero-sub {
-  font-size: 1.15rem;
-  color: var(--muted);
-
-  max-width: 620px;
-
-  margin: 1.2rem 0 2.5rem;
-}
-
-.hero-stats {
-  display: flex;
-  gap: 2.5rem;
-
-  margin-bottom: 2.5rem;
-
-  flex-wrap: wrap;
-}
-
-.stat-item {
-  text-align: center;
-}
-
-.stat-val {
-  font-size: 1.8rem;
-  font-weight: 700;
-
-  color: var(--accent);
-}
-
-.stat-lbl {
-  font-size: 0.75rem;
-  color: var(--muted);
-
-  margin-top: 2px;
-}
-
-.hero-btns {
-  display: flex;
-  gap: 1rem;
-
-  flex-wrap: wrap;
-}
-
-.btn {
-  padding: 0.75rem 1.8rem;
-
-  border-radius: 8px;
-
-  font-size: 0.9rem;
-  font-weight: 600;
-
-  text-decoration: none;
-
-  transition: all 0.2s;
-
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-}
-
-.btn-primary {
-  background: var(--accent);
-  color: #080f1a;
-}
-
-.btn-primary:hover {
-  background: #00bfa5;
-  transform: translateY(-2px);
-}
-
-.btn-outline {
-  border: 1.5px solid var(--border);
-  color: var(--text);
-}
-
-.btn-outline:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-
-  transform: translateY(-2px);
-}
-
-/* =========================
-   SECTIONS
-========================= */
-
-section {
-  padding: 5rem 6rem;
-}
-
-.section-label {
-  font-family: var(--mono);
-
-  font-size: 0.75rem;
-  color: var(--accent);
-
-  letter-spacing: 0.15em;
-  text-transform: uppercase;
-
-  margin-bottom: 0.5rem;
-}
-
-.section-title {
-  font-size: 2rem;
-  font-weight: 700;
-
-  margin-bottom: 0.6rem;
-}
-
-.section-sub {
-  color: var(--muted);
-  font-size: 0.95rem;
-
-  margin-bottom: 3rem;
-}
-
-.divider {
-  width: 48px;
-  height: 3px;
-
-  background: var(--accent);
-
-  margin: 1rem 0 3rem;
-
-  border-radius: 2px;
-}
-
-/* =========================
-   TASK CARDS
-========================= */
-
-.tasks-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(300px, 1fr));
-
-  gap: 1.5rem;
-}
-
-.task-card {
-  background: var(--card);
-
-  border: 1px solid var(--border);
-  border-radius: 12px;
-
-  padding: 1.8rem;
-
-  transition:
-    transform 0.2s,
-    border-color 0.2s;
-
-  position: relative;
-  overflow: hidden;
-}
-
-.task-card::before {
-  content: "";
-
-  position: absolute;
-
-  top: 0;
-  left: 0;
-  right: 0;
-
-  height: 3px;
-
-  background: var(
-    --card-accent,
-    var(--accent)
-  );
-}
-
-.task-card:hover {
-  transform: translateY(-4px);
-
-  border-color:
-    var(--card-accent, var(--accent));
-}
-
-.task-num {
-  font-family: var(--mono);
-
-  font-size: 0.75rem;
-
-  color:
-    var(--card-accent, var(--accent));
-
-  font-weight: 600;
-
-  margin-bottom: 0.5rem;
-}
-
-.task-title {
-  font-size: 1.05rem;
-  font-weight: 600;
-
-  margin-bottom: 0.8rem;
-}
-
-.task-desc {
-  font-size: 0.88rem;
-  color: var(--muted);
-
-  margin-bottom: 1.2rem;
-
-  line-height: 1.6;
-}
-
-.task-tags {
-  display: flex;
-  flex-wrap: wrap;
-
-  gap: 0.4rem;
-
-  margin-bottom: 1.4rem;
-}
-
-.tag {
-  font-family: var(--mono);
-
-  font-size: 0.72rem;
-
-  padding: 0.2rem 0.6rem;
-
-  border-radius: 4px;
-
-  background: rgba(255,255,255,0.05);
-
-  color: var(--muted);
-
-  border: 1px solid var(--border);
-}
-
-.task-link {
-  font-size: 0.82rem;
-  font-weight: 600;
-
-  color:
-    var(--card-accent, var(--accent));
-
-  text-decoration: none;
-
-  display: inline-flex;
-
-  align-items: center;
-
-  gap: 0.3rem;
-}
-
-.task-link:hover {
-  text-decoration: underline;
-}
-
-/* =========================
-   FINDINGS
-========================= */
-
-.findings-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(250px, 1fr));
-
-  gap: 1.2rem;
-}
-
-.finding-card {
-  background: var(--card);
-
-  border: 1px solid var(--border);
-
-  border-radius: 10px;
-
-  padding: 1.4rem;
-}
-
-.finding-icon {
-  font-size: 1.5rem;
-
-  margin-bottom: 0.6rem;
-}
-
-.finding-val {
-  font-size: 1.6rem;
-  font-weight: 700;
-
-  color: var(--accent);
-}
-
-.finding-label {
-  font-size: 0.8rem;
-  color: var(--muted);
-
-  margin-top: 0.3rem;
-}
-
-/* =========================
-   SKILLS
-========================= */
-
-.skills-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(200px, 1fr));
-
-  gap: 1rem;
-}
-
-.skill-item {
-  background: var(--card);
-
-  border: 1px solid var(--border);
-
-  border-radius: 8px;
-
-  padding: 1rem 1.2rem;
-
-  display: flex;
-  align-items: center;
-
-  gap: 0.8rem;
-}
-
-.skill-dot {
-  width: 8px;
-  height: 8px;
-
-  border-radius: 50%;
-
-  flex-shrink: 0;
-}
-
-.skill-name {
-  font-size: 0.88rem;
-  font-weight: 500;
-}
-
-/* =========================
-   HYPOTHESIS
-========================= */
-
-.hypothesis-box {
-  background: var(--card);
-
-  border: 1px solid var(--border);
-
-  border-radius: 12px;
-
-  padding: 2rem;
-
-  max-width: 1000px;
-}
-
-.hypothesis-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(220px, 1fr));
-
-  gap: 1.2rem;
-
-  margin-top: 1.5rem;
-}
-
-.hypothesis-item {
-  background: var(--surface);
-
-  border: 1px solid var(--border);
-
-  border-radius: 8px;
-
-  padding: 1.2rem;
-}
-
-.hypothesis-label {
-  font-family: var(--mono);
-
-  font-size: 0.7rem;
-
-  color: var(--muted);
-
-  text-transform: uppercase;
-
-  margin-bottom: 0.4rem;
-}
-
-.hypothesis-value {
-  font-size: 1.2rem;
-
-  font-weight: 700;
-
-  color: var(--accent);
-}
-
-.result-badge {
-  display: inline-block;
-
-  margin-top: 1rem;
-
-  padding: 0.35rem 0.8rem;
-
-  border-radius: 20px;
-
-  font-size: 0.75rem;
-
-  font-weight: 600;
-
-  color: var(--green);
-
-  background:
-    rgba(46, 204, 113, 0.12);
-
-  border:
-    1px solid rgba(46, 204, 113, 0.3);
-}
-
-.interpretation {
-  margin-top: 1.5rem;
-
-  padding: 1rem 1.2rem;
-
-  border-left:
-    3px solid var(--accent);
-
-  background:
-    rgba(0, 212, 170, 0.05);
-
-  color: var(--muted);
-
-  font-size: 0.88rem;
-}
-
-/* =========================
-   PORTFOLIO HIGHLIGHTS
-========================= */
-
-.highlight-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(auto-fit, minmax(280px, 1fr));
-
-  gap: 1.2rem;
-}
-
-.highlight-card {
-  background: var(--card);
-
-  border: 1px solid var(--border);
-
-  border-radius: 10px;
-
-  padding: 1.5rem;
-}
-
-.highlight-title {
-  font-size: 1rem;
-
-  font-weight: 600;
-
-  margin-bottom: 0.5rem;
-}
-
-.highlight-text {
-  color: var(--muted);
-
-  font-size: 0.84rem;
-
-  line-height: 1.65;
-}
-
-/* =========================
-   FOOTER
-========================= */
-
-footer {
-  background: var(--surface);
-
-  border-top:
-    1px solid var(--border);
-
-  padding: 2.5rem 6rem;
-
-  text-align: center;
-
-  color: var(--muted);
-
-  font-size: 0.82rem;
-}
-
-footer a {
-  color: var(--accent);
-
-  text-decoration: none;
-}
-
-footer a:hover {
-  text-decoration: underline;
-}
-
-/* =========================
-   MOBILE
-========================= */
-
-@media (max-width: 768px) {
-
-  .hero,
-  section {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
-  }
-
-  .hero {
-    padding-top: 6rem;
-  }
-
-  .nav-links {
-    display: none;
-  }
-
-  .hero-stats {
-    gap: 1.5rem;
-  }
-
-  .hero h1 {
-    font-size: 3rem;
-  }
-
-  .hypothesis-box {
-    padding: 1.2rem;
-  }
-
-  footer {
-    padding:
-      2rem 1.5rem;
-  }
-}
-</style>
+  <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <meta http-equiv="Content-Style-Type" content="text/css">
+  <title></title>
+  <meta name="Generator" content="Cocoa HTML Writer">
+  <meta name="CocoaVersion" content="2685.3">
+  <style type="text/css">
+    body {background-color: #090d14}
+    p.p1 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px 'Helvetica Neue'; color: #1bce9a; -webkit-text-stroke: #1bce9a}
+    p.p3 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.6px 'Helvetica Neue'; color: #1bce9a; -webkit-text-stroke: #1bce9a}
+    p.p5 {margin: 0.0px 0.0px 30.0px 0.0px; font: 13.8px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    p.p6 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 21.6px 'Helvetica Neue'; color: #1bce9a; -webkit-text-stroke: #1bce9a}
+    p.p7 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 9.0px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    p.p8 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec}
+    p.p9 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #1bce9a; -webkit-text-stroke: #1bce9a}
+    p.p11 {margin: 0.0px 0.0px 36.0px 0.0px; font: 11.4px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    p.p12 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec; background-color: #1bce9a; min-height: 15.0px}
+    p.p13 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #3f77f5; -webkit-text-stroke: #3f77f5}
+    p.p14 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.6px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec}
+    p.p15 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    p.p16 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.6px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84; background-color: #ffffff; background-color: rgba(255, 255, 255, 0.051)}
+    p.p17 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px 'Helvetica Neue'; color: #3f77f5; -webkit-text-stroke: #3f77f5; background-color: #101824}
+    p.p18 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #2cc55e; -webkit-text-stroke: #2cc55e}
+    p.p19 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px 'Helvetica Neue'; color: #2cc55e; -webkit-text-stroke: #2cc55e; background-color: #101824}
+    p.p20 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #ee8a12; -webkit-text-stroke: #ee8a12}
+    p.p21 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px 'Helvetica Neue'; color: #ee8a12; -webkit-text-stroke: #ee8a12; background-color: #101824}
+    p.p22 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #8840a7; -webkit-text-stroke: #8840a7}
+    p.p23 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px 'Helvetica Neue'; color: #8840a7; -webkit-text-stroke: #8840a7; background-color: #101824}
+    p.p24 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.8px 'Helvetica Neue'; color: #1bce9a; -webkit-text-stroke: #1bce9a; background-color: #101824}
+    p.p25 {margin: 0.0px 0.0px 0.0px 0.0px; font: 18.0px '.Apple Color Emoji UI'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec}
+    p.p26 {margin: 0.0px 0.0px 0.0px 0.0px; font: 19.2px 'Helvetica Neue'; color: #1bce9a; -webkit-text-stroke: #1bce9a}
+    p.p27 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.6px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    p.p28 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec; background-color: #3f77f5; min-height: 15.0px}
+    p.p29 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec}
+    p.p30 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec; background-color: #2cc55e; min-height: 15.0px}
+    p.p31 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec; background-color: #ee8a12; min-height: 15.0px}
+    p.p32 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec; background-color: #8840a7; min-height: 15.0px}
+    p.p33 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec; background-color: #de352e; min-height: 15.0px}
+    p.p35 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.8px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    p.p36 {margin: 0.0px 0.0px 0.0px 0.0px; font: 8.4px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    p.p37 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.2px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec}
+    p.p38 {margin: 0.0px 0.0px 0.0px 0.0px; font: 14.4px 'Helvetica Neue'; color: #1bce9a; -webkit-text-stroke: #1bce9a}
+    p.p39 {margin: 0.0px 0.0px 0.0px 0.0px; font: 9.0px 'Helvetica Neue'; color: #2cc55e; -webkit-text-stroke: #2cc55e; background-color: #2cc55e; background-color: rgba(44, 197, 94, 0.12)}
+    p.p40 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.6px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84; background-color: #1bce9a; background-color: rgba(27, 206, 154, 0.051)}
+    p.p41 {margin: 0.0px 0.0px 0.0px 0.0px; font: 12.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec}
+    p.p42 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.1px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    p.p43 {margin: 0.0px 0.0px 6.0px 0.0px; text-align: center; font: 9.8px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    p.p44 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 9.8px 'Helvetica Neue'; color: #1bce9a; -webkit-text-stroke: #1bce9a}
+    p.p45 {margin: 0.0px 0.0px 0.0px 0.0px; text-align: center; font: 9.0px 'Helvetica Neue'; color: #152338; -webkit-text-stroke: #152338}
+    li.li2 {margin: 0.0px 0.0px 0.0px 0.0px; font: 10.2px 'Helvetica Neue'; color: #5e6c84; -webkit-text-stroke: #5e6c84}
+    span.s1 {font-kerning: none; background-color: rgba(9, 13, 20, 0.92)}
+    span.s2 {background-color: rgba(9, 13, 20, 0.92); -webkit-text-stroke: 0px #000000}
+    span.s3 {font-kerning: none}
+    span.s4 {font-kerning: none; color: #dbe2ec; -webkit-text-stroke: 0px #dbe2ec}
+    span.s5 {font-kerning: none; color: #090d14; background-color: #1bce9a; -webkit-text-stroke: 0px #090d14}
+    span.s6 {font-kerning: none; color: #dbe2ec; background-color: transparent; -webkit-text-stroke: 0px #dbe2ec}
+    span.s7 {font-kerning: none; background-color: #0d1522}
+    span.s8 {font-kerning: none; background-color: #101824}
+    span.s9 {font: 9.8px 'Helvetica Neue'; font-kerning: none; color: #3f77f5; -webkit-text-stroke: 0px #3f77f5}
+    span.s10 {font: 9.8px 'Helvetica Neue'; font-kerning: none; color: #2cc55e; -webkit-text-stroke: 0px #2cc55e}
+    span.s11 {font: 9.8px 'Helvetica Neue'; font-kerning: none; color: #ee8a12; -webkit-text-stroke: 0px #ee8a12}
+    span.s12 {font: 9.8px 'Helvetica Neue'; font-kerning: none; color: #8840a7; -webkit-text-stroke: 0px #8840a7}
+    span.s13 {font: 9.8px 'Helvetica Neue'; font-kerning: none}
+    span.s14 {font-kerning: none; color: #dbe2ec; background-color: #0d1522; -webkit-text-stroke: 0px #dbe2ec}
+    span.s15 {font-kerning: none; color: #5e6c84; background-color: #0d1522; -webkit-text-stroke: 0px #5e6c84}
+    span.s16 {font-kerning: none; color: #1bce9a; -webkit-text-stroke: 0px #1bce9a}
+    ul.ul1 {list-style-type: disc}
+  </style>
 </head>
-
 <body>
-
-<!-- =========================
-     NAV
-========================= -->
-
-<nav>
-
-  <div class="nav-brand">
-    sai_madhav.analytics
-  </div>
-
-  <ul class="nav-links">
-
-    <li>
-      <a href="#tasks">Tasks</a>
-    </li>
-
-    <li>
-      <a href="#findings">Findings</a>
-    </li>
-
-    <li>
-      <a href="#skills">Skills</a>
-    </li>
-
-    <li>
-      <a href="#hypothesis">Validation</a>
-    </li>
-
-    <li>
-      <a href="#highlights">Highlights</a>
-    </li>
-
-  </ul>
-
-</nav>
-
-
-<!-- =========================
-     HERO
-========================= -->
-
-<section class="hero">
-
-  <div class="hero-eyebrow">
-    ApexPlanet Software · Data Analytics Internship
-  </div>
-
-  <h1>
-    Sai Madhav
-    <br>
-    <span>Data Analytics Portfolio</span>
-  </h1>
-
-  <p class="hero-sub">
-
-    An end-to-end data analytics portfolio covering
-    data cleaning, exploratory analysis, SQL business questions,
-    KPI development, interactive dashboarding, and statistical validation.
-
-  </p>
-
-
-  <div class="hero-stats">
-
-    <div class="stat-item">
-      <div class="stat-val">5</div>
-      <div class="stat-lbl">Project Tasks</div>
-    </div>
-
-    <div class="stat-item">
-      <div class="stat-val">1,000</div>
-      <div class="stat-lbl">Transactions</div>
-    </div>
-
-    <div class="stat-item">
-      <div class="stat-val">₹13.94 Cr</div>
-      <div class="stat-lbl">Total Sales</div>
-    </div>
-
-    <div class="stat-item">
-      <div class="stat-val">947</div>
-      <div class="stat-lbl">Unique Customers</div>
-    </div>
-
-    <div class="stat-item">
-      <div class="stat-val">5,435</div>
-      <div class="stat-lbl">Units Sold</div>
-    </div>
-
-  </div>
-
-
-  <div class="hero-btns">
-
-    <a
-      href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio"
-      class="btn btn-primary"
-      target="_blank"
-    >
-      View GitHub →
-    </a>
-
-    <a
-      href="https://saimadhavreddy-c.github.io/Madhav-DataAnalyst-Internship-Portfolio/Task-3-Deep-Dive-Dashboard/Task3_Interactive_Dashboard.html"
-      class="btn btn-outline"
-      target="_blank"
-    >
-      Live Dashboard ↗
-    </a>
-
-    <a
-      href="#tasks"
-      class="btn btn-outline"
-    >
-      Explore Portfolio ↓
-    </a>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     TASKS
-========================= -->
-
-<section
-  id="tasks"
-  style="background: var(--surface);"
->
-
-  <div class="section-label">
-    Project Journey
-  </div>
-
-  <h2 class="section-title">
-    5-Task Analytics Journey
-  </h2>
-
-  <p class="section-sub">
-    One sales dataset transformed from raw records into an analysis-ready
-    portfolio with business insights and statistical validation.
-  </p>
-
-  <div class="divider"></div>
-
-
-  <div class="tasks-grid">
-
-
-    <!-- TASK 1 -->
-
-    <div
-      class="task-card"
-      style="--card-accent:#4f8ef7;"
-    >
-
-      <div class="task-num">
-        TASK 01
-      </div>
-
-      <div class="task-title">
-        Data Immersion & Wrangling
-      </div>
-
-      <div class="task-desc">
-
-        Profiled and cleaned 1,000 sales transactions.
-        Addressed missing Age and City values, retained and flagged
-        repeated Order IDs, created Transaction IDs, engineered
-        analysis fields, and validated revenue calculations.
-
-      </div>
-
-      <div class="task-tags">
-
-        <span class="tag">Python</span>
-        <span class="tag">Pandas</span>
-        <span class="tag">Excel</span>
-        <span class="tag">Data Cleaning</span>
-        <span class="tag">Feature Engineering</span>
-
-      </div>
-
-      <a
-        href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio/tree/main/Task-1-Data-Wrangling"
-        class="task-link"
-        target="_blank"
-      >
-        View Task 1 →
-      </a>
-
-    </div>
-
-
-    <!-- TASK 2 -->
-
-    <div
-      class="task-card"
-      style="--card-accent:#2ecc71;"
-    >
-
-      <div class="task-num">
-        TASK 02
-      </div>
-
-      <div class="task-title">
-        EDA & Business Intelligence
-      </div>
-
-      <div class="task-desc">
-
-        Explored monthly sales, category, product, city, gender,
-        age-group and pricing patterns. Answered seven business
-        questions using SQL and exploratory analysis.
-
-      </div>
-
-      <div class="task-tags">
-
-        <span class="tag">EDA</span>
-        <span class="tag">SQL</span>
-        <span class="tag">Excel</span>
-        <span class="tag">Business Questions</span>
-        <span class="tag">Correlation</span>
-
-      </div>
-
-      <a
-        href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio/tree/main/Task-2-EDA-Business-Intelligence"
-        class="task-link"
-        target="_blank"
-      >
-        View Task 2 →
-      </a>
-
-    </div>
-
-
-    <!-- TASK 3 -->
-
-    <div
-      class="task-card"
-      style="--card-accent:#f39c12;"
-    >
-
-      <div class="task-num">
-        TASK 03
-      </div>
-
-      <div class="task-title">
-        Deep-Dive & Interactive Dashboard
-      </div>
-
-      <div class="task-desc">
-
-        Built a KPI-driven sales dashboard and performed category
-        and product deep-dive analysis. The dashboard presents
-        sales, transactions, customers, units sold and performance
-        trends in an interactive format.
-
-      </div>
-
-      <div class="task-tags">
-
-        <span class="tag">KPIs</span>
-        <span class="tag">Plotly</span>
-        <span class="tag">Dashboard</span>
-        <span class="tag">Business Analysis</span>
-
-      </div>
-
-      <a
-        href="https://saimadhavreddy-c.github.io/Madhav-DataAnalyst-Internship-Portfolio/Task-3-Deep-Dive-Dashboard/Task3_Interactive_Dashboard.html"
-        class="task-link"
-        target="_blank"
-      >
-        Open Live Dashboard →
-      </a>
-
-    </div>
-
-
-    <!-- TASK 4 -->
-
-    <div
-      class="task-card"
-      style="--card-accent:#9b59b6;"
-    >
-
-      <div class="task-num">
-        TASK 04
-      </div>
-
-      <div class="task-title">
-        Data Storytelling & Statistical Validation
-      </div>
-
-      <div class="task-desc">
-
-        Developed a stakeholder presentation and statistically
-        evaluated whether average transaction sales differed
-        between female and male transactions using Welch's
-        independent two-sample t-test.
-
-      </div>
-
-      <div class="task-tags">
-
-        <span class="tag">Welch T-test</span>
-        <span class="tag">p-value</span>
-        <span class="tag">Confidence Interval</span>
-        <span class="tag">PowerPoint</span>
-
-      </div>
-
-      <a
-        href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio/tree/main/Task-4-Statistical-Validation"
-        class="task-link"
-        target="_blank"
-      >
-        View Task 4 →
-      </a>
-
-    </div>
-
-
-    <!-- TASK 5 -->
-
-    <div
-      class="task-card"
-      style="--card-accent:#00d4aa;"
-    >
-
-      <div class="task-num">
-        TASK 05
-      </div>
-
-      <div class="task-title">
-        Capstone & Portfolio Finalization
-      </div>
-
-      <div class="task-desc">
-
-        Consolidated the complete internship work into a master
-        GitHub portfolio, documented technical skills and learning,
-        prepared the final presentation materials, and created
-        this portfolio experience.
-
-      </div>
-
-      <div class="task-tags">
-
-        <span class="tag">GitHub</span>
-        <span class="tag">Portfolio</span>
-        <span class="tag">Documentation</span>
-        <span class="tag">Data Storytelling</span>
-
-      </div>
-
-      <a
-        href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio"
-        class="task-link"
-        target="_blank"
-      >
-        View Master Repository →
-      </a>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FINDINGS
-========================= -->
-
-<section id="findings">
-
-  <div class="section-label">
-    Key Findings
-  </div>
-
-  <h2 class="section-title">
-    What the Sales Data Revealed
-  </h2>
-
-  <p class="section-sub">
-    Selected findings from the exploratory analysis and
-    category/product deep dive.
-  </p>
-
-  <div class="divider"></div>
-
-
-  <div class="findings-grid">
-
-
-    <div class="finding-card">
-
-      <div class="finding-icon">
-        📊
-      </div>
-
-      <div class="finding-val">
-        ₹139.40M
-      </div>
-
-      <div class="finding-label">
-        Total sales across 1,000 transactions
-      </div>
-
-    </div>
-
-
-    <div class="finding-card">
-
-      <div class="finding-icon">
-        💻
-      </div>
-
-      <div class="finding-val">
-        ₹50.78M
-      </div>
-
-      <div class="finding-label">
-        Electronics category sales, representing 36.43% of total sales
-      </div>
-
-    </div>
-
-
-    <div class="finding-card">
-
-      <div class="finding-icon">
-        🏆
-      </div>
-
-      <div class="finding-val">
-        ₹25.44M
-      </div>
-
-      <div class="finding-label">
-        Laptop sales — highest individual product contribution
-      </div>
-
-    </div>
-
-
-    <div class="finding-card">
-
-      <div class="finding-icon">
-        👥
-      </div>
-
-      <div class="finding-val">
-        32.80M
-      </div>
-
-      <div class="finding-label">
-        Sales from the 35–44 age group
-      </div>
-
-    </div>
-
-
-    <div class="finding-card">
-
-      <div class="finding-icon">
-        📍
-      </div>
-
-      <div class="finding-val">
-        ₹19.29M
-      </div>
-
-      <div class="finding-label">
-        Sales recorded in Patna, the highest-sales city in the analysis
-      </div>
-
-    </div>
-
-
-    <div class="finding-card">
-
-      <div class="finding-icon">
-        📈
-      </div>
-
-      <div class="finding-val">
-        r = 0.6863
-      </div>
-
-      <div class="finding-label">
-        Pearson correlation between Unit Price and Total Sales
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     SKILLS
-========================= -->
-
-<section
-  id="skills"
-  style="background: var(--surface);"
->
-
-  <div class="section-label">
-    Technical Skills
-  </div>
-
-  <h2 class="section-title">
-    Tools & Technologies
-  </h2>
-
-  <p class="section-sub">
-    Technical capabilities demonstrated throughout the internship.
-  </p>
-
-  <div class="divider"></div>
-
-
-  <div class="skills-grid">
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#4f8ef7;"
-      ></div>
-
-      <div class="skill-name">
-        Python
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#2ecc71;"
-      ></div>
-
-      <div class="skill-name">
-        Pandas
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#f39c12;"
-      ></div>
-
-      <div class="skill-name">
-        SQL
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#9b59b6;"
-      ></div>
-
-      <div class="skill-name">
-        Exploratory Data Analysis
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#e74c3c;"
-      ></div>
-
-      <div class="skill-name">
-        Data Cleaning
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#00d4aa;"
-      ></div>
-
-      <div class="skill-name">
-        Data Visualization
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#4f8ef7;"
-      ></div>
-
-      <div class="skill-name">
-        KPI Development
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#2ecc71;"
-      ></div>
-
-      <div class="skill-name">
-        Interactive Dashboards
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#f39c12;"
-      ></div>
-
-      <div class="skill-name">
-        Statistical Testing
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#9b59b6;"
-      ></div>
-
-      <div class="skill-name">
-        Data Storytelling
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#e74c3c;"
-      ></div>
-
-      <div class="skill-name">
-        Excel
-      </div>
-    </div>
-
-
-    <div class="skill-item">
-      <div
-        class="skill-dot"
-        style="background:#00d4aa;"
-      ></div>
-
-      <div class="skill-name">
-        Git & GitHub
-      </div>
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     HYPOTHESIS
-========================= -->
-
-<section id="hypothesis">
-
-  <div class="section-label">
-    Statistical Validation
-  </div>
-
-  <h2 class="section-title">
-    Hypothesis Testing
-  </h2>
-
-  <p class="section-sub">
-    Testing whether average transaction sales differed between
-    female and male transactions.
-  </p>
-
-  <div class="divider"></div>
-
-
-  <div class="hypothesis-box">
-
-
-    <h3>
-      Business Question
-    </h3>
-
-    <p
-      style="
-        color:var(--muted);
-        margin-top:0.6rem;
-        font-size:0.9rem;
-      "
-    >
-      Is there statistical evidence that the mean transaction
-      sales for female and male transactions are different?
-    </p>
-
-
-    <div class="hypothesis-grid">
-
-
-      <div class="hypothesis-item">
-
-        <div class="hypothesis-label">
-          Null Hypothesis H₀
-        </div>
-
-        <div
-          style="
-            color:var(--text);
-            font-size:0.85rem;
-          "
-        >
-          Female and male mean transaction sales are equal.
-        </div>
-
-      </div>
-
-
-      <div class="hypothesis-item">
-
-        <div class="hypothesis-label">
-          Alternative H₁
-        </div>
-
-        <div
-          style="
-            color:var(--text);
-            font-size:0.85rem;
-          "
-        >
-          Female and male mean transaction sales are different.
-        </div>
-
-      </div>
-
-
-      <div class="hypothesis-item">
-
-        <div class="hypothesis-label">
-          Statistical Test
-        </div>
-
-        <div class="hypothesis-value">
-          Welch's t-test
-        </div>
-
-      </div>
-
-
-      <div class="hypothesis-item">
-
-        <div class="hypothesis-label">
-          Significance Level
-        </div>
-
-        <div class="hypothesis-value">
-          α = 0.05
-        </div>
-
-      </div>
-
-
-      <div class="hypothesis-item">
-
-        <div class="hypothesis-label">
-          P-value
-        </div>
-
-        <div class="hypothesis-value">
-          0.495011
-        </div>
-
-      </div>
-
-
-      <div class="hypothesis-item">
-
-        <div class="hypothesis-label">
-          95% Confidence Interval
-        </div>
-
-        <div class="hypothesis-value">
-          [-₹19,079.85, ₹9,231.58]
-        </div>
-
-      </div>
-
-
-    </div>
-
-
-    <span class="result-badge">
-      Fail to Reject H₀ at α = 0.05
-    </span>
-
-
-    <div class="interpretation">
-
-      The p-value is greater than the 0.05 significance level,
-      so the analysis does not provide sufficient statistical
-      evidence to conclude that the two group means differ.
-
-      This is a statistical finding for this dataset and should
-      not be interpreted as proof that gender has no effect on
-      purchasing behavior.
-
-    </div>
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     PORTFOLIO HIGHLIGHTS
-========================= -->
-
-<section
-  id="highlights"
-  style="background:var(--surface);"
->
-
-  <div class="section-label">
-    Portfolio Highlights
-  </div>
-
-  <h2 class="section-title">
-    From Data to Decision Support
-  </h2>
-
-  <p class="section-sub">
-    The project follows a complete analytics workflow.
-  </p>
-
-  <div class="divider"></div>
-
-
-  <div class="highlight-grid">
-
-
-    <div class="highlight-card">
-
-      <div class="highlight-title">
-        01 · Trust the Data
-      </div>
-
-      <div class="highlight-text">
-
-        Profiled missing values, repeated identifiers,
-        formatting consistency and revenue calculations before
-        using the dataset for analysis.
-
-      </div>
-
-    </div>
-
-
-    <div class="highlight-card">
-
-      <div class="highlight-title">
-        02 · Ask Business Questions
-      </div>
-
-      <div class="highlight-text">
-
-        Used SQL and exploratory analysis to examine sales
-        performance across time, products, categories, cities,
-        gender and age groups.
-
-      </div>
-
-    </div>
-
-
-    <div class="highlight-card">
-
-      <div class="highlight-title">
-        03 · Build KPIs
-      </div>
-
-      <div class="highlight-text">
-
-        Defined core measures including total sales,
-        average transaction value, transaction count,
-        unique customers and units sold.
-
-      </div>
-
-    </div>
-
-
-    <div class="highlight-card">
-
-      <div class="highlight-title">
-        04 · Communicate Visually
-      </div>
-
-      <div class="highlight-text">
-
-        Converted the analysis into an interactive dashboard
-        designed to make category, product and sales performance
-        easier to explore.
-
-      </div>
-
-    </div>
-
-
-    <div class="highlight-card">
-
-      <div class="highlight-title">
-        05 · Validate Statistically
-      </div>
-
-      <div class="highlight-text">
-
-        Used a Welch independent two-sample t-test and confidence
-        interval to validate a business question rather than
-        relying only on descriptive differences.
-
-      </div>
-
-    </div>
-
-
-    <div class="highlight-card">
-
-      <div class="highlight-title">
-        06 · Document the Journey
-      </div>
-
-      <div class="highlight-text">
-
-        Organized the work into a public GitHub portfolio containing
-        cleaning scripts, reports, SQL, datasets, dashboard assets
-        and the final presentation.
-
-      </div>
-
-    </div>
-
-
-  </div>
-
-</section>
-
-
-<!-- =========================
-     FOOTER
-========================= -->
-
-<footer>
-
-  <p style="margin-bottom:0.5rem;">
-
-    <strong style="color:var(--text);">
-      Sai Madhav
-    </strong>
-
-    — Data Analytics Intern · ApexPlanet Software Pvt. Ltd.
-
-  </p>
-
-
-  <p>
-
-    <a
-      href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio"
-      target="_blank"
-    >
-      GitHub
-    </a>
-
-    &nbsp;·&nbsp;
-
-    <a
-      href="https://www.linkedin.com/in/sai-madhav-challa-bb9663384"
-      target="_blank"
-    >
-      LinkedIn
-    </a>
-
-    &nbsp;·&nbsp;
-
-    <a
-      href="https://saimadhavreddy-c.github.io/Madhav-DataAnalyst-Internship-Portfolio/Task-3-Deep-Dive-Dashboard/Task3_Interactive_Dashboard.html"
-      target="_blank"
-    >
-      Live Dashboard
-    </a>
-
-  </p>
-
-
-  <p
-    style="
-      margin-top:1rem;
-      font-size:0.75rem;
-      color:var(--border);
-    "
-  >
-    ApexPlanet Data Analytics Internship · End-to-End Sales Analytics Portfolio
-  </p>
-
-</footer>
-
-
+<p class="p1"><span class="s1">sai_madhav.analytics</span></p>
+<ul class="ul1">
+  <li class="li2"><span class="s2"></span><span class="s1">Tasks</span></li>
+  <li class="li2"><span class="s2"></span><span class="s1">Findings</span></li>
+  <li class="li2"><span class="s2"></span><span class="s1">Skills</span></li>
+  <li class="li2"><span class="s2"></span><span class="s1">Validation</span></li>
+  <li class="li2"><span class="s2"></span><span class="s1">Highlights</span></li>
+</ul>
+<p class="p3"><span class="s3">APEXPLANET SOFTWARE · DATA ANALYTICS INTERNSHIP</span></p>
+<h1 style="margin: 0.0px 0.0px 6.0px 0.0px; font: 48.0px 'Helvetica Neue'; color: #1bce9a; -webkit-text-stroke: #1bce9a"><span class="s4">Sai Madhav <br>
+</span><span class="s3">Data Analytics Portfolio</span></h1>
+<p class="p5"><span class="s3">An end-to-end data analytics portfolio covering data cleaning, exploratory analysis, SQL business questions, KPI development, interactive dashboarding, and statistical validation.</span></p>
+<p class="p6"><span class="s3">5</span></p>
+<p class="p7"><span class="s3">Project Tasks</span></p>
+<p class="p6"><span class="s3">1,000</span></p>
+<p class="p7"><span class="s3">Transactions</span></p>
+<p class="p6"><span class="s3">₹13.94 Cr</span></p>
+<p class="p7"><span class="s3">Total Sales</span></p>
+<p class="p6"><span class="s3">947</span></p>
+<p class="p7"><span class="s3">Unique Customers</span></p>
+<p class="p6"><span class="s3">5,435</span></p>
+<p class="p7"><span class="s3">Units Sold</span></p>
+<p class="p8"><span class="s5"><a href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio">View GitHub → </a><a href="https://saimadhavreddy-c.github.io/Madhav-DataAnalyst-Internship-Portfolio/Task-3-Deep-Dive-Dashboard/Task3_Interactive_Dashboard.html"><span class="s6">Live Dashboard ↗ </span></a></span><span class="s3">Explore Portfolio ↓</span></p>
+<p class="p9"><span class="s7">PROJECT JOURNEY</span></p>
+<h2 style="margin: 0.0px 0.0px 7.2px 0.0px; font: 24.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec"><span class="s7">5-Task Analytics Journey</span></h2>
+<p class="p11"><span class="s7">One sales dataset transformed from raw records into an analysis-ready portfolio with business insights and statistical validation.</span></p>
+<p class="p12"><span class="s3"></span><br></p>
+<p class="p13"><span class="s8">TASK 01</span></p>
+<p class="p14"><span class="s8">Data Immersion &amp; Wrangling</span></p>
+<p class="p15"><span class="s8">Profiled and cleaned 1,000 sales transactions. Addressed missing Age and City values, retained and flagged repeated Order IDs, created Transaction IDs, engineered analysis fields, and validated revenue calculations.</span></p>
+<p class="p16"><span class="s3">Python</span></p>
+<p class="p16"><span class="s3">Pandas</span></p>
+<p class="p16"><span class="s3">Excel</span></p>
+<p class="p16"><span class="s3">Data Cleaning</span></p>
+<p class="p16"><span class="s3">Feature Engineering</span></p>
+<p class="p17"><span class="s3"><a href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio/tree/main/Task-1-Data-Wrangling">View Task 1 →<span class="s9"></span></a></span></p>
+<p class="p18"><span class="s8">TASK 02</span></p>
+<p class="p14"><span class="s8">EDA &amp; Business Intelligence</span></p>
+<p class="p15"><span class="s8">Explored monthly sales, category, product, city, gender, age-group and pricing patterns. Answered seven business questions using SQL and exploratory analysis.</span></p>
+<p class="p16"><span class="s3">EDA</span></p>
+<p class="p16"><span class="s3">SQL</span></p>
+<p class="p16"><span class="s3">Excel</span></p>
+<p class="p16"><span class="s3">Business Questions</span></p>
+<p class="p16"><span class="s3">Correlation</span></p>
+<p class="p19"><span class="s3"><a href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio/tree/main/Task-2-EDA-Business-Intelligence">View Task 2 →<span class="s10"></span></a></span></p>
+<p class="p20"><span class="s8">TASK 03</span></p>
+<p class="p14"><span class="s8">Deep-Dive &amp; Interactive Dashboard</span></p>
+<p class="p15"><span class="s8">Built a KPI-driven sales dashboard and performed category and product deep-dive analysis. The dashboard presents sales, transactions, customers, units sold and performance trends in an interactive format.</span></p>
+<p class="p16"><span class="s3">KPIs</span></p>
+<p class="p16"><span class="s3">Plotly</span></p>
+<p class="p16"><span class="s3">Dashboard</span></p>
+<p class="p16"><span class="s3">Business Analysis</span></p>
+<p class="p21"><span class="s3"><a href="https://saimadhavreddy-c.github.io/Madhav-DataAnalyst-Internship-Portfolio/Task-3-Deep-Dive-Dashboard/Task3_Interactive_Dashboard.html">Open Live Dashboard →<span class="s11"></span></a></span></p>
+<p class="p22"><span class="s8">TASK 04</span></p>
+<p class="p14"><span class="s8">Data Storytelling &amp; Statistical Validation</span></p>
+<p class="p15"><span class="s8">Developed a stakeholder presentation and statistically evaluated whether average transaction sales differed between female and male transactions using Welch's independent two-sample t-test.</span></p>
+<p class="p16"><span class="s3">Welch T-test</span></p>
+<p class="p16"><span class="s3">p-value</span></p>
+<p class="p16"><span class="s3">Confidence Interval</span></p>
+<p class="p16"><span class="s3">PowerPoint</span></p>
+<p class="p23"><span class="s3"><a href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio/tree/main/Task-4-Statistical-Validation">View Task 4 →<span class="s12"></span></a></span></p>
+<p class="p9"><span class="s8">TASK 05</span></p>
+<p class="p14"><span class="s8">Capstone &amp; Portfolio Finalization</span></p>
+<p class="p15"><span class="s8">Consolidated the complete internship work into a master GitHub portfolio, documented technical skills and learning, prepared the final presentation materials, and created this portfolio experience.</span></p>
+<p class="p16"><span class="s3">GitHub</span></p>
+<p class="p16"><span class="s3">Portfolio</span></p>
+<p class="p16"><span class="s3">Documentation</span></p>
+<p class="p16"><span class="s3">Data Storytelling</span></p>
+<p class="p24"><span class="s3"><a href="https://github.com/SaiMadhavReddy-C/Madhav-DataAnalyst-Internship-Portfolio">View Master Repository →<span class="s13"></span></a></span></p>
+<p class="p9"><span class="s3">KEY FINDINGS</span></p>
+<h2 style="margin: 0.0px 0.0px 7.2px 0.0px; font: 24.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec"><span class="s3">What the Sales Data Revealed</span></h2>
+<p class="p11"><span class="s3">Selected findings from the exploratory analysis and category/product deep dive.</span></p>
+<p class="p12"><span class="s3"></span><br></p>
+<p class="p25"><span class="s8">📊</span></p>
+<p class="p26"><span class="s8">₹139.40M</span></p>
+<p class="p27"><span class="s8">Total sales across 1,000 transactions</span></p>
+<p class="p25"><span class="s8">💻</span></p>
+<p class="p26"><span class="s8">₹50.78M</span></p>
+<p class="p27"><span class="s8">Electronics category sales, representing 36.43% of total sales</span></p>
+<p class="p25"><span class="s8">🏆</span></p>
+<p class="p26"><span class="s8">₹25.44M</span></p>
+<p class="p27"><span class="s8">Laptop sales — highest individual product contribution</span></p>
+<p class="p25"><span class="s8">👥</span></p>
+<p class="p26"><span class="s8">32.80M</span></p>
+<p class="p27"><span class="s8">Sales from the 35–44 age group</span></p>
+<p class="p25"><span class="s8">📍</span></p>
+<p class="p26"><span class="s8">₹19.29M</span></p>
+<p class="p27"><span class="s8">Sales recorded in Patna, the highest-sales city in the analysis</span></p>
+<p class="p25"><span class="s8">📈</span></p>
+<p class="p26"><span class="s8">r = 0.6863</span></p>
+<p class="p27"><span class="s8">Pearson correlation between Unit Price and Total Sales</span></p>
+<p class="p9"><span class="s7">TECHNICAL SKILLS</span></p>
+<h2 style="margin: 0.0px 0.0px 7.2px 0.0px; font: 24.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec"><span class="s7">Tools &amp; Technologies</span></h2>
+<p class="p11"><span class="s7">Technical capabilities demonstrated throughout the internship.</span></p>
+<p class="p12"><span class="s3"></span><br></p>
+<p class="p28"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Python</span></p>
+<p class="p30"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Pandas</span></p>
+<p class="p31"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">SQL</span></p>
+<p class="p32"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Exploratory Data Analysis</span></p>
+<p class="p33"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Data Cleaning</span></p>
+<p class="p12"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Data Visualization</span></p>
+<p class="p28"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">KPI Development</span></p>
+<p class="p30"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Interactive Dashboards</span></p>
+<p class="p31"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Statistical Testing</span></p>
+<p class="p32"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Data Storytelling</span></p>
+<p class="p33"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Excel</span></p>
+<p class="p12"><span class="s3"></span><br></p>
+<p class="p29"><span class="s8">Git &amp; GitHub</span></p>
+<p class="p9"><span class="s3">STATISTICAL VALIDATION</span></p>
+<h2 style="margin: 0.0px 0.0px 7.2px 0.0px; font: 24.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec"><span class="s3">Hypothesis Testing</span></h2>
+<p class="p11"><span class="s3">Testing whether average transaction sales differed between female and male transactions.</span></p>
+<p class="p12"><span class="s3"></span><br></p>
+<h3 style="margin: 0.0px 0.0px 0.0px 0.0px; font: 14.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec"><span class="s8">Business Question</span></h3>
+<p class="p35"><span class="s8">Is there statistical evidence that the mean transaction sales for female and male transactions are different?</span></p>
+<p class="p36"><span class="s7">NULL HYPOTHESIS H₀</span></p>
+<p class="p37"><span class="s7">Female and male mean transaction sales are equal.</span></p>
+<p class="p36"><span class="s7">ALTERNATIVE H₁</span></p>
+<p class="p37"><span class="s7">Female and male mean transaction sales are different.</span></p>
+<p class="p36"><span class="s7">STATISTICAL TEST</span></p>
+<p class="p38"><span class="s7">Welch's t-test</span></p>
+<p class="p36"><span class="s7">SIGNIFICANCE LEVEL</span></p>
+<p class="p38"><span class="s7">α = 0.05</span></p>
+<p class="p36"><span class="s7">P-VALUE</span></p>
+<p class="p38"><span class="s7">0.495011</span></p>
+<p class="p36"><span class="s7">95% CONFIDENCE INTERVAL</span></p>
+<p class="p38"><span class="s7">[-₹19,079.85, ₹9,231.58]</span></p>
+<p class="p39"><span class="s3">Fail to Reject H₀ at α = 0.05</span></p>
+<p class="p40"><span class="s3">The p-value is greater than the 0.05 significance level, so the analysis does not provide sufficient statistical evidence to conclude that the two group means differ. This is a statistical finding for this dataset and should not be interpreted as proof that gender has no effect on purchasing behavior.</span></p>
+<p class="p9"><span class="s7">PORTFOLIO HIGHLIGHTS</span></p>
+<h2 style="margin: 0.0px 0.0px 7.2px 0.0px; font: 24.0px 'Helvetica Neue'; color: #dbe2ec; -webkit-text-stroke: #dbe2ec"><span class="s7">From Data to Decision Support</span></h2>
+<p class="p11"><span class="s7">The project follows a complete analytics workflow.</span></p>
+<p class="p12"><span class="s3"></span><br></p>
+<p class="p41"><span class="s8">01 · Trust the Data</span></p>
+<p class="p42"><span class="s8">Profiled missing values, repeated identifiers, formatting consistency and revenue calculations before using the dataset for analysis.</span></p>
+<p class="p41"><span class="s8">02 · Ask Business Questions</span></p>
+<p class="p42"><span class="s8">Used SQL and exploratory analysis to examine sales performance across time, products, categories, cities, gender and age groups.</span></p>
+<p class="p41"><span class="s8">03 · Build KPIs</span></p>
+<p class="p42"><span class="s8">Defined core measures including total sales, average transaction value, transaction count, unique customers and units sold.</span></p>
+<p class="p41"><span class="s8">04 · Communicate Visually</span></p>
+<p class="p42"><span class="s8">Converted the analysis into an interactive dashboard designed to make category, product and sales performance easier to explore.</span></p>
+<p class="p41"><span class="s8">05 · Validate Statistically</span></p>
+<p class="p42"><span class="s8">Used a Welch independent two-sample t-test and confidence interval to validate a business question rather than relying only on descriptive differences.</span></p>
+<p class="p41"><span class="s8">06 · Document the Journey</span></p>
+<p class="p42"><span class="s8">Organized the work into a public GitHub portfolio containing cleaning scripts, reports, SQL, datasets, dashboard assets and the final presentation.</span></p>
+<p class="p43"><span class="s14">Sai Madhav </span><span class="s7">— Data Analytics Intern · ApexPlanet Software Pvt. Ltd.</span></p>
+<p class="p44"><span class="s7"><a href="https://github.com/SaiMadhavReddy-C">GitHub </a></span><span class="s15"> ·  <a href="https://www.linkedin.com/in/sai-madhav-challa-bb9663384"><span class="s16">LinkedIn </span></a> ·  <a href="https://saimadhavreddy-c.github.io/Madhav-DataAnalyst-Internship-Portfolio/Task-3-Deep-Dive-Dashboard/Task3_Interactive_Dashboard.html"><span class="s16">Live Dashboard</span></a></span></p>
+<p class="p45"><span class="s7">ApexPlanet Data Analytics Internship · End-to-End Sales Analytics Portfolio</span></p>
 </body>
 </html>
