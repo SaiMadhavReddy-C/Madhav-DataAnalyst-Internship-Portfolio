@@ -1,0 +1,17 @@
+I’m happy to share my Data Analytics internship journey with ApexPlanet Software Pvt. Ltd.
+
+Across the internship, I worked through an end-to-end analytics project using a sales dataset: data cleaning and quality assessment, exploratory analysis, SQL business questions, KPI design, dashboarding, and statistical validation.
+
+Some of the work I completed included:
+• Cleaning missing and inconsistent data
+• Building a data dictionary and reusable Python/Pandas workflow
+• Exploring sales trends by month, category, product, city, gender, and age group
+• Defining business KPIs and creating dashboard views
+• Performing statistical hypothesis testing and interpreting the result
+• Organizing the work into a professional GitHub portfolio
+
+The biggest takeaway for me was learning that good analytics is not only about creating charts. It starts with trustworthy data, continues with the right business questions, and ends with a clear story that someone can act on.
+
+I’m grateful for the opportunity to strengthen my practical skills and build an end-to-end project that I can continue improving.
+
+#DataAnalytics #Python #SQL #Excel #EDA #Dashboard #ApexPlanet #Internship

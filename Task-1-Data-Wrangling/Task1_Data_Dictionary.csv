@@ -1,0 +1,22 @@
+Variable,Meaning,Type,Observed/Derived Values,Business Relevance
+Transaction_ID,Unique row-level transaction identifier created during cleaning,string,Unique after cleaning,Primary row identifier
+Order_ID,Order identifier supplied in source dataset,string,Not unique in supplied data,Business order reference; duplicate flag retained
+Order_Date,Date of the transaction,date,No parse failures,Time-series analysis
+Year,Year extracted from Order_Date,integer,2025,Year-level grouping
+Month,Month number extracted from Order_Date,integer,1-12,Monthly analysis
+Month_Name,Three-letter month label,string,Jan-Dec,Readable charts
+Customer_ID,Customer identifier,string,947 unique values,Customer-level analysis
+Customer_Name,Customer display name,string,425 unique values,Customer profiling
+Age,Customer age; missing values imputed with source median,numeric,18-65,Demographic segmentation
+Age_Group,Age band engineered from Age,categorical,"18-24, 25-34, 35-44, 45-54, 55-65",Segmentation
+Gender,Customer gender,categorical,"Female, Male",Demographic analysis
+City,Customer city; missing values labeled Unknown,categorical,8 named cities + Unknown,Geographic analysis
+Product,Product purchased,categorical,6 products,Product performance
+Category,Product category,categorical,5 categories,Category performance
+Quantity,Units purchased,integer,1-10,Volume analysis
+Unit_Price,Price per unit,numeric,Positive values,Pricing/revenue analysis
+Total_Sales,Transaction sales amount,numeric,Positive values,Primary revenue KPI
+Revenue_Check,Validates Quantity × Unit_Price ≈ Total_Sales,boolean,True/False,Data-quality validation
+Duplicate_Order_ID_Flag,Flags repeated source Order_ID values,boolean,True/False,Data-quality audit
+Missing_Age_Flag,Flags rows where Age was missing before imputation,boolean,True/False,Data-quality audit
+Missing_City_Flag,Flags rows where City was missing before replacement,boolean,True/False,Data-quality audit

@@ -1,0 +1,7 @@
+TASK 5 — 3–5 MIN PORTFOLIO WALKTHROUGH SCRIPT
+1. Open the master GitHub repository.
+2. Explain the README and project structure.
+3. Open Task 1, Task 2, Task 3 and Task 4 deliverables.
+4. Show the final dashboard and presentation.
+5. Explain the main technical skills demonstrated.
+6. Finish with key learning reflections and next steps.

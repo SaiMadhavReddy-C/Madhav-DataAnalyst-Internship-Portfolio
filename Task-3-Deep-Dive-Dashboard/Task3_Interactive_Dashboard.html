@@ -1,0 +1,26 @@
+<!doctype html>
+<html><head><meta charset="utf-8"><title>ApexPlanet Sales Dashboard</title>
+<script src="https://cdn.plot.ly/plotly-2.35.2.min.js"></script>
+<style>body{font-family:Arial;margin:30px} .kpis{display:flex;gap:15px;flex-wrap:wrap} .kpi{border:1px solid #ddd;padding:15px;min-width:180px;border-radius:8px} </style>
+</head><body>
+<h1>ApexPlanet — Interactive Sales Dashboard</h1>
+<div class="kpis">
+<div class="kpi"><b>Total Sales</b><br>139,399,439.65</div>
+<div class="kpi"><b>Transactions</b><br>1,000</div>
+<div class="kpi"><b>Unique Customers</b><br>947</div>
+<div class="kpi"><b>Average Transaction</b><br>139,399.44</div>
+</div>
+<div id="monthly" style="height:420px"></div>
+<div id="category" style="height:420px"></div>
+<div id="product" style="height:420px"></div>
+<script>
+const monthly=["Jan 2025", "Feb 2025", "Mar 2025", "Apr 2025", "May 2025", "Jun 2025", "Jul 2025", "Aug 2025", "Sep 2025", "Oct 2025", "Nov 2025", "Dec 2025", "Jan 2026"];
+const monthlySales=[10096190.73, 11511181.46, 13059899.94, 12222700.17, 10984689.25, 12912332.64, 11746226.8, 9448471.22, 9179896.29, 12500936.5, 12627620.22, 12299904.44, 809389.99];
+const cats=["Electronics", "Education", "Grocery", "Furniture", "Fashion"];
+const catSales=[50778581.7, 25031689.4, 22231711.28, 21521561.48, 19835895.79];
+const products=["Laptop", "Mobile", "Book", "Rice", "Chair", "Shoes"];
+const productSales=[25443008.51, 25335573.19, 25031689.4, 22231711.28, 21521561.48, 19835895.79];
+Plotly.newPlot('monthly',[{x:monthly,y:monthlySales,type:'scatter',mode:'lines+markers'}],{title:'Monthly Sales'});
+Plotly.newPlot('category',[{x:cats,y:catSales,type:'bar'}],{title:'Sales by Category'});
+Plotly.newPlot('product',[{x:products,y:productSales,type:'bar'}],{title:'Sales by Product'});
+</script></body></html>

@@ -1,0 +1,13 @@
+Metric,Value
+Rows,1000
+Columns,12
+Exact duplicate rows,0
+Missing Age,20
+Missing City,13
+Duplicate Order_ID rows,9
+Invalid dates,0
+Revenue formula mismatches,0
+Age IQR outliers,0
+Quantity IQR outliers,0
+Unit_Price IQR outliers,0
+Total_Sales IQR outliers,19

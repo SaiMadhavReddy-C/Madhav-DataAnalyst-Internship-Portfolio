@@ -1,0 +1,6 @@
+KPI,Formula,Value,Business Rationale
+Total Sales,SUM(Total_Sales),139399439.65,Overall revenue scale
+Average Order Value,SUM(Total_Sales) / COUNT(Transaction_ID),139399.43965000001,Average transaction value
+Transactions,COUNT(Transaction_ID),1000.0,Transaction volume
+Unique Customers,COUNT(DISTINCT Customer_ID),947.0,Customer reach
+Units Sold,SUM(Quantity),5435.0,Sales volume

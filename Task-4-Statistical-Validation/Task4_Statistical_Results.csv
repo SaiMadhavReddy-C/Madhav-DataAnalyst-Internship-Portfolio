@@ -1,0 +1,2 @@
+Test,Comparison,t_statistic,p_value,CI_Low,CI_High,Decision
+Welch t-test,Female vs Male Total_Sales,-0.6826103913380815,0.49501147851458344,-19079.84692397301,9231.584614215133,Fail to reject H0
